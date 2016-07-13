@@ -8,7 +8,9 @@ import com.jcraft.jsch.Session;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.maven.plugin.logging.Log;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.annotate.JsonSetter;
 
 import java.io.IOException;
 import java.util.List;
@@ -27,12 +29,16 @@ public class SecureCopy implements Action {
     @JsonProperty("items")
     private List<Bean> items;
 
-    @Getter
-    @JsonProperty("to")
     private To to = To.REMOTE;
 
+    @JsonIgnore
+    public To getTo() {
+        return to;
+    }
+
+    @JsonSetter("to")
     public void setTo(String to) {
-        this.to = To.valueOf(to);
+        this.to = To.valueOf(to.toUpperCase());
     }
 
     @Override
