@@ -32,6 +32,11 @@
             <version>3.2.1</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.53</version>
+        </dependency>
     </dependencies>
 
     <build>
