@@ -17,13 +17,13 @@ import java.io.IOException;
 @Mojo(name = "template", defaultPhase = LifecyclePhase.GENERATE_RESOURCES)
 public class TemplateDeployMojo extends AbstractMojo {
 
-    @Parameter(alias = "ssh.deployfile.path", property = "ssh.deployfile.path", defaultValue = "Deploy.json.template")
-    private File deployfile;
+    @Parameter(alias = "ssh.deployfile.path", property = "ssh.deployfile.path", defaultValue = "Deploy.json")
+    private String deployfile;
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
         try {
-            Deployfile.saveDeployfile(deployfile);
+            Deployfile.saveDeployfile(new File(deployfile + ".template"));
         } catch (IOException e) {
             throw new MojoFailureException(e.getMessage(), e);
         }

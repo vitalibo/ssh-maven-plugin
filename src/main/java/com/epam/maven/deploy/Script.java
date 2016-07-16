@@ -28,8 +28,8 @@ public class Script {
 
     @Getter
     @Setter
-    @JsonProperty("describe")
-    private String describe;
+    @JsonProperty("description")
+    private String description;
 
     @Getter
     @Setter
