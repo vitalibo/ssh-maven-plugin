@@ -14,10 +14,10 @@ import java.io.IOException;
 /**
  * @author Vitaliy Boyarsky
  */
-@Mojo(name = "create-dummy", defaultPhase = LifecyclePhase.GENERATE_RESOURCES)
-public class CreateDummyMojo extends AbstractMojo {
+@Mojo(name = "template", defaultPhase = LifecyclePhase.GENERATE_RESOURCES)
+public class TemplateDeployMojo extends AbstractMojo {
 
-    @Parameter(alias = "ssh.deployfile.path", property = "ssh.deployfile.path", defaultValue = "Deploy.json")
+    @Parameter(alias = "ssh.deployfile.path", property = "ssh.deployfile.path", defaultValue = "Deploy.json.template")
     private File deployfile;
 
     @Override

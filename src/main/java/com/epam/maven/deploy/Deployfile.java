@@ -1,7 +1,7 @@
 package com.epam.maven.deploy;
 
-import com.epam.maven.deploy.actions.Bash;
-import com.epam.maven.deploy.actions.SecureCopy;
+import com.epam.maven.deploy.action.Bash;
+import com.epam.maven.deploy.action.SecureCopy;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -39,7 +39,7 @@ public class Deployfile {
 
     public static void saveDeployfile(File deployfile) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.writerWithDefaultPrettyPrinter().writeValue(deployfile, new DummyDeployfile());
+        mapper.writerWithDefaultPrettyPrinter().writeValue(deployfile, new TemplateDeployfile());
     }
 
     public void setVersion(String version) {
@@ -55,9 +55,9 @@ public class Deployfile {
         throw new MojoExecutionException("Script with name '" + name + "' not found. Please check you configuration");
     }
 
-    private static class DummyDeployfile extends Deployfile {
+    private static class TemplateDeployfile extends Deployfile {
 
-        private DummyDeployfile() {
+        private TemplateDeployfile() {
             SecureCopy scp = new SecureCopy();
             scp.setItems(Collections.singletonList(new SecureCopy.Bean("target/${project.build.package}", ".")));
             Bash bash = new Bash();

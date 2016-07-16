@@ -1,7 +1,7 @@
 package com.epam.maven.deploy;
 
-import com.epam.maven.deploy.actions.Bash;
-import com.epam.maven.deploy.actions.SecureCopy;
+import com.epam.maven.deploy.action.Bash;
+import com.epam.maven.deploy.action.SecureCopy;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import org.apache.maven.plugin.logging.Log;

@@ -1,8 +1,7 @@
-package com.epam.maven.deploy.actions;
+package com.epam.maven.deploy.action;
 
 import com.epam.maven.deploy.Action;
 import com.epam.maven.ssh.SecureShell;
-import com.epam.maven.utils.Separator;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import lombok.Getter;
@@ -19,7 +18,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import static com.epam.maven.utils.Replacer.replaceAll;
+import static com.epam.maven.util.Helper.SEPARATOR;
+import static com.epam.maven.util.Helper.replaceAll;
 
 /**
  * @author Vitaliy Boyarsky
@@ -50,7 +50,7 @@ public class Bash implements Action {
     public void execute(Session session, Map<Pattern, String> properties, Log logger)
             throws IOException, JSchException {
         logger.info("Running Bash scripts in deploy machine");
-        logger.info(Separator.TO_STRING);
+        logger.info(SEPARATOR);
         System.out.println();
 
         SecureShell ssh = new SecureShell();
@@ -66,7 +66,7 @@ public class Bash implements Action {
         ssh.execute(session);
 
         System.out.println();
-        logger.info(Separator.TO_STRING);
+        logger.info(SEPARATOR);
         logger.info("");
     }
 

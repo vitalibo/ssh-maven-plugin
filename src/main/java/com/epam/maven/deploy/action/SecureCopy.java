@@ -1,8 +1,7 @@
-package com.epam.maven.deploy.actions;
+package com.epam.maven.deploy.action;
 
 import com.epam.maven.deploy.Action;
 import com.epam.maven.ssh.SecureCopyProtocol;
-import com.epam.maven.utils.Separator;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import lombok.Getter;
@@ -17,7 +16,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import static com.epam.maven.utils.Replacer.replaceAll;
+import static com.epam.maven.util.Helper.SEPARATOR;
+import static com.epam.maven.util.Helper.replaceAll;
 
 /**
  * @author Vitaliy Boyarsky
@@ -45,7 +45,7 @@ public class SecureCopy implements Action {
     public void execute(Session session, Map<Pattern, String> properties, Log logger)
             throws IOException, JSchException {
         logger.info("Start copying files");
-        logger.info(Separator.TO_STRING);
+        logger.info(SEPARATOR);
         System.out.println();
 
         for (Bean item : items) {
@@ -60,7 +60,7 @@ public class SecureCopy implements Action {
         }
 
         System.out.println();
-        logger.info(Separator.TO_STRING);
+        logger.info(SEPARATOR);
         logger.info("Copying successfully completed");
     }
 

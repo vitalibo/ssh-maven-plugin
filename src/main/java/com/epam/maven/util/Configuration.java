@@ -1,4 +1,4 @@
-package com.epam.maven.utils;
+package com.epam.maven.util;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;

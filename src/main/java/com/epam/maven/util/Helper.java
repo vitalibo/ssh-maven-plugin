@@ -1,4 +1,4 @@
-package com.epam.maven.utils;
+package com.epam.maven.util;
 
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -6,9 +6,18 @@ import java.util.regex.Pattern;
 /**
  * @author Vitaliy Boyarsky
  */
-public class Replacer {
+public class Helper {
 
-    private Replacer() {
+    public static final String SEPARATOR;
+
+    static {
+        StringBuilder sb = new StringBuilder(72);
+        for (int i = 0; i < 72; i++)
+            sb.append('-');
+        SEPARATOR = sb.toString();
+    }
+
+    private Helper() {
         super();
     }
 

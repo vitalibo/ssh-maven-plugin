@@ -1,6 +1,6 @@
 package com.epam.maven.deploy;
 
-import com.epam.maven.utils.Configuration;
+import com.epam.maven.util.Configuration;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import lombok.Getter;

@@ -2,7 +2,7 @@ package com.epam.maven.mojo;
 
 import com.epam.maven.deploy.Deployfile;
 import com.epam.maven.deploy.Script;
-import com.epam.maven.utils.Configuration;
+import com.epam.maven.util.Configuration;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -20,7 +20,7 @@ import java.io.IOException;
  * @author Vitaliy Boyarsky
  */
 @Mojo(name = "deploy", defaultPhase = LifecyclePhase.DEPLOY)
-public class DeploySSHMojo extends SecureShellMojo {
+public class DeploySecureShellMojo extends SecureShellMojo {
 
     @Parameter(alias = "ssh.deployfile.path", property = "ssh.deployfile.path", defaultValue = "Deploy.json")
     private File deployfile;
